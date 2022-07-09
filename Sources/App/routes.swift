@@ -4,7 +4,7 @@ func routes(_ app: Application) throws {
     let controller = AuthController()
     
     app.get { req in
-        return "Hi dude, it's Alexander's Grigoryev mock server!"
+        return "Hey, you're highly welcome to the Alexander's Grigoryev mock server!"
     }
 
     app.get("hello") { req -> String in
