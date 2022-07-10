@@ -1,13 +1,13 @@
 //
-//  RegisterRequest.swift
+//  File.swift
 //  
 //
-//  Created by Alexander Grigoryev on 7/7/22.
+//  Created by Alexander Grigoryev on 7/10/22.
 //
 
 import Vapor
 
-struct RegisterRequest: Content {
+struct ChangeDataRequest: Content {
     let id_user: Int
     let username: String
     let password: String

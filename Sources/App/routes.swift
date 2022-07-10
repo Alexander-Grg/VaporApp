@@ -1,9 +1,11 @@
 import Vapor
 
 func routes(_ app: Application) throws {
+    let registerController = RegisterController()
     let authController = AuthController()
-    let loginController = LoginController()
-    
+    let changeDataController = ChangeDataController()
+    let getProductController = GetProductController()
+
     app.get { req in
         return "Hey, you're highly welcome to the Alexander's Grigoryev mock server!"
     }
@@ -11,8 +13,15 @@ func routes(_ app: Application) throws {
     app.get("hello") { req -> String in
         return "Hello, world!"
     }
+
+    app.post("register", use: registerController.register)
+
+    app.post("login", use: authController.login)
     
-    app.post("register", use: authController.register)
+    app.post("logout", use: authController.logout)
+
+    app.post("changeUserData", use: changeDataController.changeData)
     
-    app.post("login", use: loginController.login)
+    app.post("getProductList", use: getProductController.getProductsList)
+    
 }
