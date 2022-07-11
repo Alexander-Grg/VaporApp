@@ -8,6 +8,5 @@
 import Vapor
 
 struct GetProductListRequest: Content {
-    let page_number: Int
     let id_category: Int
 }

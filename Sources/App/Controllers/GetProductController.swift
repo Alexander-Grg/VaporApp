@@ -16,15 +16,15 @@ class GetProductController {
     
     let productList: [Product] = [
     
-        Product(id_product: 1, product_name: "Rice", price: 30),
-        Product(id_product: 1, product_name: "Buckwheat", price: 25),
-        Product(id_product: 1, product_name: "Corn", price: 10),
-        Product(id_product: 1, product_name: "Wheat", price: 28),
+        Product(id_product: 1, product_name: "Rice", price: 30, id_category: 11),
+        Product(id_product: 1, product_name: "Buckwheat", price: 25, id_category: 12),
+        Product(id_product: 1, product_name: "Corn", price: 10, id_category: 13),
+        Product(id_product: 1, product_name: "Wheat", price: 28, id_category: 14),
         
-        Product(id_product: 2, product_name: "Soda", price: 65),
-        Product(id_product: 2, product_name: "SparklingWater", price: 45),
-        Product(id_product: 2, product_name: "Coffee", price: 70),
-        Product(id_product: 2, product_name: "Tea", price: 40),
+        Product(id_product: 2, product_name: "Soda", price: 65, id_category: 21),
+        Product(id_product: 2, product_name: "SparklingWater", price: 45, id_category: 22),
+        Product(id_product: 2, product_name: "Coffee", price: 70, id_category: 23),
+        Product(id_product: 2, product_name: "Tea", price: 40, id_category: 24),
 
     ]
     
@@ -35,6 +35,12 @@ class GetProductController {
         
         print(body)
         
+//        if body.id_product == productLis {
+//
+//
+//            GetSingleProductResponse(result: 1, product_name: filteredProduct, product_price: <#T##Int#>, product_description: <#T##String#>)
+//        }
+//
         return req.eventLoop.future(responseSingleProduct)
     }
     
@@ -48,16 +54,16 @@ class GetProductController {
         if body.id_category == 1 {
             let filteredArray = productList.filter {$0.id_product == 1}
 
-            return req.eventLoop.future(GetProductListResponse(page_number: body.page_number, products: filteredArray, error: nil))
+            return req.eventLoop.future(GetProductListResponse(products: filteredArray, error: nil))
 
         } else if body.id_category == 2 {
             let filteredArray = productList.filter {$0.id_product == 2}
 
-            return req.eventLoop.future(GetProductListResponse(page_number: body.page_number, products: filteredArray, error: nil))
+            return req.eventLoop.future(GetProductListResponse(products: filteredArray, error: nil))
             
         } else {
 
-            return req.eventLoop.future(GetProductListResponse(page_number: body.page_number, products: nil, error: "There is no such category or ID"))
+            return req.eventLoop.future(GetProductListResponse(products: nil, error: "There is no such category or ID"))
         }
     }
     
