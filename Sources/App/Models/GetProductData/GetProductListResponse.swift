@@ -8,8 +8,7 @@
 import Vapor
 
 struct GetProductListResponse: Content {
-    let products: [Product]?
-    let error: String?
+    let products: [Product]
 }
 
 struct Product: Content {
