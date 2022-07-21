@@ -5,6 +5,7 @@ func routes(_ app: Application) throws {
     let authController = AuthController()
     let changeDataController = ChangeDataController()
     let getProductController = GetProductController()
+    let addDeleteReviewController = AddDeleteReview()
     
     app.get { req in
         return "Hey, you're highly welcome to the Alexander's Grigoryev mock server!"
@@ -25,5 +26,8 @@ func routes(_ app: Application) throws {
     app.post("getProductList", use: getProductController.getProductsList)
     
     app.post("getSingleProduct", use: getProductController.getSingleProduct)
+    
+    app.put("addReview", use: addDeleteReviewController.addReview)
+
     
 }

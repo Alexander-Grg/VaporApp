@@ -8,5 +8,5 @@
 import Vapor
 
 struct GetSingleProductResponse: Content {
-    let products: Product
+    var products: Product
 }
