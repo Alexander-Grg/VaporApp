@@ -14,7 +14,7 @@ struct GetProductListResponse: Content {
 
 struct Product: Content {
     let result: Int
-    let id_product: Int
+    let id_product: String
     let product_name: String
     let price: Int
     let id_category: Int

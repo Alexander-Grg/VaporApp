@@ -9,13 +9,13 @@ import Vapor
 
 class GetProductController {
     
-    let responseSingleProduct = Product(result: 1,
-                                        id_product: 007,
-                                        product_name: "Test",
-                                        price: 20,
-                                        id_category: 1,
-                                        productReviews: [ProductReviews(review: "test", nameOfReviewer: "Test")])
-    
+//    let responseSingleProduct = Product(result: 1,
+//                                        id_product: 007,
+//                                        product_name: "Test",
+//                                        price: 20,
+//                                        id_category: 1,
+//                                        productReviews: [ProductReviews(review: "test", nameOfReviewer: "Test")])
+//    
 
     
     
