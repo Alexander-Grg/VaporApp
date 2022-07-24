@@ -75,7 +75,7 @@ curl --location --request POST 'https://gentle-depths-89634.herokuapp.com/getSin
 ```
 
 /addReview
-
+```swift
 curl --location --request PUT 'https://gentle-depths-89634.herokuapp.com/addReview' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -83,10 +83,12 @@ curl --location --request PUT 'https://gentle-depths-89634.herokuapp.com/addRevi
     "nameOfReviewer": "John",
     "id": "m1"
 }'
+```
 
 /deleteReview
-
+```swift
 curl --location --request PUT 'https://gentle-depths-89634.herokuapp.com/deleteReview' \
 --header 'Content-Type: application/json' \
 --data-raw '{"id" : "m1"
 }'
+```
