@@ -6,7 +6,6 @@
 //
 
 import Vapor
-import SwiftUI
 
 var productsReviews: [ProductReviews] = []
 
