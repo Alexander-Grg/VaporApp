@@ -7,8 +7,8 @@
 
 import Vapor
 
-struct AddReviewRequest: Content {
+struct ReviewRequest: Content {
     let review: String
     let nameOfReviewer: String
-    let id: Int
+    let id: String
 }

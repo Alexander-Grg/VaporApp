@@ -28,6 +28,6 @@ func routes(_ app: Application) throws {
     app.post("getSingleProduct", use: getProductController.getSingleProduct)
     
     app.put("addReview", use: addDeleteReviewController.addReview)
-
     
+    app.put("deleteReview", use: addDeleteReviewController.deleteReview)
 }

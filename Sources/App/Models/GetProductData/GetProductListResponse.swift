@@ -8,7 +8,8 @@
 import Vapor
 
 struct GetProductListResponse: Content {
-    var products: [Product]
+    let products: [Product]?
+    let error: String?
 }
 
 struct Product: Content {
@@ -17,7 +18,7 @@ struct Product: Content {
     let product_name: String
     let price: Int
     let id_category: Int
-    var productReviews: [ProductReviews]?
+    var productReviews: [ProductReviews]
 }
 
 struct ProductReviews: Content {
@@ -25,10 +26,3 @@ struct ProductReviews: Content {
     let nameOfReviewer: String
 }
 
-
-//struct GetSingleProductResponse: Content {
-//    let result: Int
-//    let product_name: String
-//    let product_price: Int
-//    let product_description: String
-//}

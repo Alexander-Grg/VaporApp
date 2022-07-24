@@ -8,34 +8,38 @@
 import Vapor
 import SwiftUI
 
+var productsReviews: [ProductReviews] = []
+
 class AddDeleteReview {
-    func addReview(_ req: Request) throws -> EventLoopFuture<AddReviewResponse> {
-        guard let body = try? req.content.decode(AddReviewRequest.self) else {
+    func addReview(_ req: Request) throws -> EventLoopFuture<ReviewResponse> {
+        guard let body = try? req.content.decode(ReviewRequest.self) else {
             throw Abort(.badRequest)
         }
-
             let review = ProductReviews(review: body.review, nameOfReviewer: body.nameOfReviewer)
-            var response = AddReviewResponse(result: nil, error: nil)
+            var response = ReviewResponse(result: nil, error: nil)
         
-            productList.updateEach { product in
-                if product.id_product == body.id {
-                    product.productReviews?.append(review)
-                    
-                    response = AddReviewResponse(result: 1, error: nil)
-                    
-                } else {
-                   
-                   response = AddReviewResponse(result: nil, error: "Data hasn't been updated")
-                }
+        productList.forEach { key, value in
+            if key.contains(body.id ) {
+                productList[body.id]?.productReviews.append(review)
+                response = ReviewResponse(result: 1, error: nil)
             }
+        }
         return req.eventLoop.future(response)
     }
-}
-
-extension MutableCollection {
-  mutating func updateEach(_ update: (inout Element) -> Void) {
-    for i in indices {
-      update(&self[i])
+    
+    func deleteReview(_ req: Request) throws -> EventLoopFuture<DeleteReviewResponse> {
+        guard let body = try? req.content.decode(DeleteReviewRequest.self) else {
+            throw Abort(.badRequest)
+        }
+        
+        var response = DeleteReviewResponse(result: nil, error: nil)
+        
+        productList.forEach { key, value in
+            if key == body.id {
+                productList[body.id]?.productReviews.removeLast()
+                response = DeleteReviewResponse(result: 1, error: nil)
+        }
+        }
+        return req.eventLoop.future(response)
     }
-  }
 }

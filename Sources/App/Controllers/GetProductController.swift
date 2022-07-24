@@ -26,12 +26,12 @@ class GetProductController {
         
         print(body)
         
-        guard let filteredData = productList.filter({$0.id_product == body.id_product}).first
+        guard let data = productList[body.id_product]
         else {
             throw Abort(.noContent)
         }
         
-        let responseProduct = GetSingleProductResponse(products: filteredData)
+        let responseProduct = GetSingleProductResponse(products: data)
         
         return req.eventLoop.future(responseProduct)
     }
@@ -43,9 +43,15 @@ class GetProductController {
         
         print(body)
         
-        let filteredData = productList.filter {$0.id_category == body.id_category}
+        var responseList = GetProductListResponse(products: nil, error: nil)
+        var filteredData: [Product] = []
         
-        let responseList = GetProductListResponse(products: filteredData)
+        productList.forEach { key, value in
+            if key.contains(body.id_category){
+                filteredData.append(value)
+                responseList = GetProductListResponse(products: filteredData, error: nil)
+            } 
+        }
         
         return req.eventLoop.future(responseList)
     }
