@@ -50,22 +50,43 @@ curl --location --request POST 'https://gentle-depths-89634.herokuapp.com/change
 }'
 ```
 
-/getProductsList Available categories 1 and 2
+/getProductsList Available categories String "m" - meal and String "d" - drink
+https://github.com/westlaw7x7/VaporApp/blob/master/Sources/App/Models/ProductsData.swift
 
 ```swift
 curl --location --request POST 'https://gentle-depths-89634.herokuapp.com/getProductList' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-"id_category": 1
+"id_category": "m"
 }'
 ```
 
-/getSingleProduct
+/getSingleProduct 
+Available data - 
+https://github.com/westlaw7x7/VaporApp/blob/master/Sources/App/Models/ProductsData.swift
+
 
 ```swift
 curl --location --request POST 'https://gentle-depths-89634.herokuapp.com/getSingleProduct' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-"id_product": 1
+"id_product": "m1"
 }'
 ```
+
+/addReview
+
+curl --location --request PUT 'https://gentle-depths-89634.herokuapp.com/addReview' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "review": "alalalalala",
+    "nameOfReviewer": "John",
+    "id": "m1"
+}'
+
+/deleteReview
+
+curl --location --request PUT 'https://gentle-depths-89634.herokuapp.com/deleteReview' \
+--header 'Content-Type: application/json' \
+--data-raw '{"id" : "m1"
+}'
