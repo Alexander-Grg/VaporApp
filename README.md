@@ -6,7 +6,7 @@ https://online-shop-personal-a2a078cc9446.herokuapp.com/  - URL, deployed to HER
 /login
 
 ```swift
-curl --location --request POST 'https://gentle-depths-89634.herokuapp.com/login' \
+curl --location --request POST 'https://online-shop-personal-a2a078cc9446.herokuapp.com/login' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "username" : "Somebody",
@@ -17,7 +17,7 @@ curl --location --request POST 'https://gentle-depths-89634.herokuapp.com/login'
 /logout
 
 ```swift
-curl --location --request POST 'https://gentle-depths-89634.herokuapp.com/logout' \
+curl --location --request POST 'https://online-shop-personal-a2a078cc9446.herokuapp.com/logout' \
 --header 'Content-Type: application/json' \
 --data-raw '{"id_user" : 123}'
 ```
@@ -25,7 +25,7 @@ curl --location --request POST 'https://gentle-depths-89634.herokuapp.com/logout
 /register or /changeUserData
 
 ```swift
-curl --location --request POST 'https://gentle-depths-89634.herokuapp.com/register' \
+curl --location --request POST 'https://online-shop-personal-a2a078cc9446.herokuapp.com/register' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "id_user" : 123,
@@ -54,7 +54,7 @@ curl --location --request POST 'https://gentle-depths-89634.herokuapp.com/change
 https://github.com/westlaw7x7/VaporApp/blob/master/Sources/App/Models/ProductsData.swift
 
 ```swift
-curl --location --request POST 'https://gentle-depths-89634.herokuapp.com/getProductList' \
+curl --location --request POST 'https://online-shop-personal-a2a078cc9446.herokuapp.com/getProductList' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "id_category": "m"
@@ -67,7 +67,7 @@ https://github.com/westlaw7x7/VaporApp/blob/master/Sources/App/Models/ProductsDa
 
 
 ```swift
-curl --location --request POST 'https://gentle-depths-89634.herokuapp.com/getSingleProduct' \
+curl --location --request POST 'https://online-shop-personal-a2a078cc9446.herokuapp.com/getSingleProduct' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 "id_product": "m1"
@@ -76,7 +76,7 @@ curl --location --request POST 'https://gentle-depths-89634.herokuapp.com/getSin
 
 /addReview
 ```swift
-curl --location --request PUT 'https://gentle-depths-89634.herokuapp.com/addReview' \
+curl --location --request PUT 'https://online-shop-personal-a2a078cc9446.herokuapp.com/addReview' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "review": "alalalalala",
@@ -87,7 +87,7 @@ curl --location --request PUT 'https://gentle-depths-89634.herokuapp.com/addRevi
 
 /deleteReview
 ```swift
-curl --location --request PUT 'https://gentle-depths-89634.herokuapp.com/deleteReview' \
+curl --location --request PUT 'https://online-shop-personal-a2a078cc9446.herokuapp.com/deleteReview' \
 --header 'Content-Type: application/json' \
 --data-raw '{"id" : "m1"
 }'
