@@ -1,7 +1,7 @@
 # VaporApp
 Mock Server
 
-https://gentle-depths-89634.herokuapp.com  - URL, deployed to HEROKU
+https://online-shop-personal-a2a078cc9446.herokuapp.com/  - URL, deployed to HEROKU
 
 /login
 
